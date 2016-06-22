@@ -1,3 +1,15 @@
-<h2 id="title">Welcome to Ember</h2>
+<h1 id="title">TRMS Common Components</h1>
+
+<h2>Time Input</h2>
+<p>
+  Takes time as a string and will process user input only passing a valid time as a string to the handleUpdate action.
+</p>
+<pre>
+  \{{trms-time-input value=value update=(action 'handleUpdate')}}
+</pre>
+
+{{trms-time-input value=value update=(action 'handleUpdate')}}
+
+{{value}}
 
 {{outlet}}

@@ -1,0 +1,1 @@
+export { default } from 'trms-common-components/components/trms-time-input';
