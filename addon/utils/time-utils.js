@@ -17,7 +17,7 @@ function toTightyTime(time) {
   hour = parseInt(hour, 10);
   if (hour < 12 && forcePm) {
     hour += 12;
-  } else if (hour === 12) {
+  } else if (hour === 12 && forcePm === false) {
     hour = 0;
   }
   m.set('hour', hour);

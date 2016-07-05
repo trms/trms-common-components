@@ -75,6 +75,17 @@ test('Using pm forces time to PM', function(assert) {
   assert.equal(result, '2:20:11 pm');
 });
 
+test('Using +, p, or PM with hour 12 forces time to PM', function(assert) {
+  let result = timecodeUtils.toTightyTime('12+');
+  assert.equal(result, '12:00:00 pm');
+
+  result = timecodeUtils.toTightyTime('12p');
+  assert.equal(result, '12:00:00 pm');
+
+  result = timecodeUtils.toTightyTime('12pm');
+  assert.equal(result, '12:00:00 pm');
+});
+
 test('Passing garbage in defaults to 12am', function(assert) {
   let result = timecodeUtils.toTightyTime('aklfjd');
   assert.equal(result, '12:00:00 am');
