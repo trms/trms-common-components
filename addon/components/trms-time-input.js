@@ -9,7 +9,9 @@ export default Ember.Component.extend({
     update(value) {
       let update = this.attrs.update;
       if (update) {
-        update(TimeUtils.toTightyTime(value));
+        let parsed = TimeUtils.toTightyTime(value);
+        this.$('input')[0].value = parsed;
+        update(parsed);
       }
     }
   }
