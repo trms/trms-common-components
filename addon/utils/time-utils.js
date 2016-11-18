@@ -1,12 +1,12 @@
 import moment from 'moment';
 
-function toTightyTime(time) {
+function toTightyTime(time, defaultTime="12:00:00 am") {
   let m = moment();
   var timeRegex = /(\d+)(?:\.|:)?(\d+)?(?:\.|:)?(\d+)?\s?(am|pm|a|p|\+|-)?/;
   var results = timeRegex.exec(time.toLowerCase());
   var forcePm = false;
 
-  if (!results) {return '12:00:00 am';}
+  if (!results) {return defaultTime;}
 
   if (results[4] &&
      (results[4] === 'pm' || results[4] === 'p' || results[4] === '+')) {

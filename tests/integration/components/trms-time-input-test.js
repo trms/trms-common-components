@@ -30,3 +30,17 @@ test('Accepts an inputClass property for inner input element', function(assert) 
 
   assert.ok(this.$('input').hasClass('hot-sauce'));
 });
+
+test('Accepts a defaultTime property for sensible defaults', function(assert) {
+  this.set('value', '1:00:00 am');
+  this.set('defaultTime', '4:00:00 pm');
+
+  this.on('update', function(value) {
+    assert.equal(value, '4:00:00 pm');
+  });
+  this.render(hbs`{{trms-time-input value=value update=(action 'update') defaultTime="4:00:00 pm"}}`);
+
+  this.$('input').val('hot-sauce');
+  this.$('input').change();
+
+});
